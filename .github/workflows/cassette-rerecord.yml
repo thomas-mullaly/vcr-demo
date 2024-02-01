@@ -35,7 +35,7 @@ jobs:
           git config --global user.name 'Cassette Bot'
           git config --global user.email 'thomas-mullaly@users.noreply.github.com'
           git commit -am "Automated cassette recording"
-          git push 
+          git push --set-upstream origin $(git branch --show-current)
       - name: Push and create PR
         run: gh pr create --title "${{ steps.variables.outputs.DATE }} Automated cassette recording" --body "Automated cassette recording"
         env:
