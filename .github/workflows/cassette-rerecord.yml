@@ -17,8 +17,11 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 6.0.x
+      - name: Variable setup
+        id: variables
+        run: echo "DATE=$(date +"%Y%m%d%H%M%S")" >> "$GITHUB_OUTPUT"
       - name: Checkout cassettes branch
-        run: git checkout -b $(date +"%Y%m%d%H%M%S")-cassette-re-record
+        run: git checkout -b ${{ steps.variables.outputs.DATE }}-cassette-re-record
       - name: Restore dependencies
         run: dotnet restore
       - name: Delete cassettes
@@ -32,7 +35,8 @@ jobs:
           git config --global user.name 'Cassette Bot'
           git config --global user.email 'thomas-mullaly@users.noreply.github.com'
           git commit -am "Automated cassette recording"
+          git push 
       - name: Push and create PR
-        run: gh pr create --title "Automated cassette recording" --body "Automated cassette recording"
+        run: gh pr create --title "${{ steps.variables.outputs.DATE }} Automated cassette recording" --body "Automated cassette recording"
         env:
           GH_TOKEN: ${{ github.token }}
