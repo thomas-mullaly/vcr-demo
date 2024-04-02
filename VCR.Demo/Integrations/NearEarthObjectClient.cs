@@ -10,9 +10,11 @@ namespace VCR.Demo.Integrations;
 public class NearEarthObjectClient : INearEarthObjectClient
 {
     private readonly HttpClient _httpClient;
+    private readonly string _apiKey;
 
-    public NearEarthObjectClient(HttpClient httpClient)
+    public NearEarthObjectClient(HttpClient httpClient, string apiKey)
     {
+        _apiKey = apiKey;
         _httpClient = httpClient;
         _httpClient.BaseAddress = new Uri("https://api.nasa.gov/neo/rest/v1/");
         _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -23,7 +25,7 @@ public class NearEarthObjectClient : INearEarthObjectClient
         var query = HttpUtility.ParseQueryString(string.Empty);
         query["start_date"] = startDate.ToString("yyyy-MM-dd");
         query["end_date"] = endDate.ToString("yyyy-MM-dd");
-        query["api_key"] = "DEMO_KEY";
+        query["api_key"] = _apiKey;
 
         var response = await _httpClient.GetAsync($"feed?{query}");
         var resultString = await response.Content.ReadAsStringAsync();

@@ -9,7 +9,7 @@ public class NearEarthObjectClientTests : VcrTestBase
 
     public NearEarthObjectClientTests()
     {
-        _client = new NearEarthObjectClient(CreateClient());
+        _client = new NearEarthObjectClient(CreateClient(), "DEMO_KEY");
     }
 
     [Fact]

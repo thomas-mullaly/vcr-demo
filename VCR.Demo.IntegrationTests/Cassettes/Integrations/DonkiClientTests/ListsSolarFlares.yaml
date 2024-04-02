@@ -1,0 +1,61 @@
+version: VCR.net 1.0.0
+httpInteractions:
+- request:
+    uri: https://api.nasa.gov/DONKI/FLR?startDate=2016-01-01&endDate=2016-01-30&api_key=DEMO_KEY
+    method: GET
+    headers:
+      Accept:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 01 Feb 2024 23:12:11 GMT
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - '*'
+      Age:
+      - 0
+      Cache-Control:
+      - no-store, must-revalidate, no-cache, max-age=0
+      Pragma:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=63072000; includeSubdomains; preload
+      - max-age=31536000 ; includeSubDomains
+      - max-age=31536000; includeSubDomains; preload
+      Via:
+      - https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
+      X-Api-Umbrella-Request-Id:
+      - cdcroqs1b54rhihp32o0
+      X-Cache:
+      - MISS
+      X-Content-Type-Options:
+      - nosniff
+      X-Ratelimit-Limit:
+      - 40
+      X-Ratelimit-Remaining:
+      - 36
+      X-Vcap-Request-Id:
+      - 00880674-7644-4800-6101-a03c9274f1a5
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - DENY
+      Content-Type:
+      - application/json
+      Expires:
+      - 0
+    body:
+      encoding: ''
+      string: |-
+        [{"flrID":"2016-01-01T23:00:00-FLR-001","instruments":[{"displayName":"GOES15: SEM/XRS 1.0-8.0"}],"beginTime":"2016-01-01T23:00Z","peakTime":"2015-01-02T00:10Z","endTime":null,"classType":"M2.3","sourceLocation":"S21W73","activeRegionNum":12473,"linkedEvents":[{"activityID":"2016-01-01T23:12:00-CME-001"},{"activityID":"2016-01-02T02:48:00-SEP-001"},{"activityID":"2016-01-02T04:30:00-SEP-001"}],"link":"https://webtools.ccmc.gsfc.nasa.gov/DONKI/view/FLR/9963/-1"},{"flrID":"2016-01-28T11:48:00-FLR-001","instruments":[{"displayName":"GOES15: SEM/XRS 1.0-8.0"}],"beginTime":"2016-01-28T11:48Z","peakTime":"2016-01-28T12:02Z","endTime":"2016-01-28T12:56Z","classType":"C9.6","sourceLocation":"N03W47","activeRegionNum":12488,"linkedEvents":[{"activityID":"2016-01-28T12:24:00-CME-001"}],"link":"https://webtools.ccmc.gsfc.nasa.gov/DONKI/view/FLR/10122/-1"}]
+    httpVersion: 1.1
