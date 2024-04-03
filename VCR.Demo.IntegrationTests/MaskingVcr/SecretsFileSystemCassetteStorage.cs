@@ -7,13 +7,17 @@ namespace VCR.Demo.IntegrationTests.MaskingVcr;
 public class SecretsFileSystemCassetteStorage : ICasseteStorage
 {
     private readonly DirectoryInfo _storageLocation;
-    private readonly Dictionary<string, string> _replacements;
+    private readonly Dictionary<string, string> _replacements = new();
 
-    public SecretsFileSystemCassetteStorage(DirectoryInfo storageLocation, Dictionary<string ,string> replacements)
+    public SecretsFileSystemCassetteStorage(DirectoryInfo storageLocation)
     {
         _storageLocation = storageLocation;
-        _replacements = replacements;
         _storageLocation.Create();
+    }
+
+    public void AddSecretReplacement(string key, string value)
+    {
+        _replacements[key] = value;
     }
 
     public List<HttpInteraction>? Load(string name)
@@ -48,7 +52,7 @@ public class SecretsFileSystemCassetteStorage : ICasseteStorage
 
         foreach (var replacement in _replacements)
         {
-            contents = contents.Replace(replacement.Value, $"{{REDACTED_{replacement.Key.ToUpper()}}}");
+            contents = contents.Replace(replacement.Key, $"{{REDACTED_{replacement.Value.ToUpper()}}}");
         }
         
         writer.Write(contents);
@@ -64,7 +68,7 @@ public class SecretsFileSystemCassetteStorage : ICasseteStorage
 
         foreach (var replacement in _replacements)
         {
-            contents = contents.Replace($"{{REDACTED_{replacement.Key.ToUpper()}}}", replacement.Value);
+            contents = contents.Replace($"{{REDACTED_{replacement.Value.ToUpper()}}}", replacement.Key);
         }
 
         var serializer = new DeserializerBuilder()
