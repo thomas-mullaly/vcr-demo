@@ -43,4 +43,4 @@ jobs:
       - name: Push and create PR
         run: gh pr create --title "${{ env.PR_DATE }} Automated cassette recording" --body "Automated cassette recording"
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.BOT_TOKEN }}
