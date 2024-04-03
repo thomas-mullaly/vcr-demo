@@ -1,15 +1,21 @@
 ﻿using FluentAssertions;
+using Microsoft.Extensions.Configuration;
 using VCR.Demo.Integrations;
+using VCR.Demo.IntegrationTests.Fixtures;
 
 namespace VCR.Demo.IntegrationTests.Integrations;
 
-public class NearEarthObjectClientTests : VcrTestBase
+public class NearEarthObjectClientTests : VcrTestBase, IClassFixture<ConfigurationFixture>
 {
     private readonly NearEarthObjectClient _client;
 
-    public NearEarthObjectClientTests()
+    public NearEarthObjectClientTests(ConfigurationFixture fixture)
     {
-        _client = new NearEarthObjectClient(CreateClient(), "DEMO_KEY");
+        var apiKey = fixture.Configuration.GetValue<string>("NEO_KEY")!;
+        
+        AddSecretsReplacement(apiKey, "NEO_KEY");
+
+        _client = new NearEarthObjectClient(CreateClient(), apiKey);
     }
 
     [Fact]

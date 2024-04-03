@@ -1,7 +1,7 @@
 version: VCR.net 1.0.0
 httpInteractions:
 - request:
-    uri: https://api.nasa.gov/DONKI/FLR?startDate=2016-01-01&endDate=2016-01-30&api_key=DEMO_KEY
+    uri: https://api.nasa.gov/DONKI/FLR?startDate=2016-01-01&endDate=2016-01-30&api_key={REDACTED_API_KEY}
     method: GET
     headers:
       Accept:
@@ -12,7 +12,7 @@ httpInteractions:
       message: OK
     headers:
       Date:
-      - Thu, 01 Feb 2024 23:12:11 GMT
+      - Wed, 03 Apr 2024 13:31:13 GMT
       Transfer-Encoding:
       - chunked
       Connection:
@@ -23,7 +23,7 @@ httpInteractions:
       Access-Control-Allow-Origin:
       - '*'
       Age:
-      - 0
+      - 1
       Cache-Control:
       - no-store, must-revalidate, no-cache, max-age=0
       Pragma:
@@ -35,7 +35,7 @@ httpInteractions:
       Via:
       - https/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
       X-Api-Umbrella-Request-Id:
-      - cdcroqs1b54rhihp32o0
+      - cekgk11j31vjfrhkseug
       X-Cache:
       - MISS
       X-Content-Type-Options:
@@ -43,9 +43,9 @@ httpInteractions:
       X-Ratelimit-Limit:
       - 40
       X-Ratelimit-Remaining:
-      - 36
+      - 37
       X-Vcap-Request-Id:
-      - 00880674-7644-4800-6101-a03c9274f1a5
+      - f390e3e9-637e-4ec2-7877-86e4dc138d33
       X-XSS-Protection:
       - 1; mode=block
       X-Frame-Options:
@@ -57,5 +57,5 @@ httpInteractions:
     body:
       encoding: ''
       string: |-
-        [{"flrID":"2016-01-01T23:00:00-FLR-001","instruments":[{"displayName":"GOES15: SEM/XRS 1.0-8.0"}],"beginTime":"2016-01-01T23:00Z","peakTime":"2015-01-02T00:10Z","endTime":null,"classType":"M2.3","sourceLocation":"S21W73","activeRegionNum":12473,"linkedEvents":[{"activityID":"2016-01-01T23:12:00-CME-001"},{"activityID":"2016-01-02T02:48:00-SEP-001"},{"activityID":"2016-01-02T04:30:00-SEP-001"}],"link":"https://webtools.ccmc.gsfc.nasa.gov/DONKI/view/FLR/9963/-1"},{"flrID":"2016-01-28T11:48:00-FLR-001","instruments":[{"displayName":"GOES15: SEM/XRS 1.0-8.0"}],"beginTime":"2016-01-28T11:48Z","peakTime":"2016-01-28T12:02Z","endTime":"2016-01-28T12:56Z","classType":"C9.6","sourceLocation":"N03W47","activeRegionNum":12488,"linkedEvents":[{"activityID":"2016-01-28T12:24:00-CME-001"}],"link":"https://webtools.ccmc.gsfc.nasa.gov/DONKI/view/FLR/10122/-1"}]
+        [{"flrID":"2016-01-01T23:00:00-FLR-001","instruments":[{"displayName":"GOES15: SEM/XRS 1.0-8.0"}],"beginTime":"2016-01-01T23:00Z","peakTime":"2015-01-02T00:10Z","endTime":null,"classType":"M2.3","sourceLocation":"S21W73","activeRegionNum":12473,"note":"Associated eruption visible in SOD AIA 171. 193, and 304 with opening field lines and filament liftoff.","linkedEvents":[{"activityID":"2016-01-01T23:12:00-CME-001"},{"activityID":"2016-01-02T02:48:00-SEP-001"},{"activityID":"2016-01-02T04:30:00-SEP-001"}],"submissionTime":"2016-01-04T09:22Z","link":"https://webtools.ccmc.gsfc.nasa.gov/DONKI/view/FLR/9963/-1"},{"flrID":"2016-01-28T11:48:00-FLR-001","instruments":[{"displayName":"GOES15: SEM/XRS 1.0-8.0"}],"beginTime":"2016-01-28T11:48Z","peakTime":"2016-01-28T12:02Z","endTime":"2016-01-28T12:56Z","classType":"C9.6","sourceLocation":"N03W47","activeRegionNum":12488,"note":"","linkedEvents":[{"activityID":"2016-01-28T12:24:00-CME-001"}],"submissionTime":"2016-01-28T22:31Z","link":"https://webtools.ccmc.gsfc.nasa.gov/DONKI/view/FLR/10122/-1"}]
     httpVersion: 1.1
