@@ -31,6 +31,9 @@ jobs:
         run: dotnet build --no-restore
       - name: Test
         run: dotnet test --no-build --verbosity normal
+        env:
+          DONKI_KEY: ${{ secrets.DONKI_KEY }}
+          NEO_KEY: ${{ secrets.NEO_KEY }}
       - name: Commit changes
         run: |
           git config --global user.name 'Cassette Bot'
