@@ -22,7 +22,7 @@ jobs:
         id: variables
         run: echo "PR_DATE=$(date +"%Y-%m-%d")" >> "$GITHUB_ENV"
       - name: Checkout cassettes branch
-        run: git checkout -b ${{ env.PR_DATE }}-cassette-re-record
+        run: git checkout -b ${{ env.PR_DATE }}-${{ github.run_number }}-cassette-re-record
       - name: Restore dependencies
         run: dotnet restore
       - name: Delete cassettes
