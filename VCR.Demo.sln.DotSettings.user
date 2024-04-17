@@ -3,5 +3,6 @@
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;xUnit::A2D8D3B1-2B33-43C7-A2F9-16C48BBB0FEE::net8.0::VCR.Demo.IntegrationTests.Integrations.NearEarthObjectClientTests.Test&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::A2D8D3B1-2B33-43C7-A2F9-16C48BBB0FEE::net8.0::VCR.Demo.IntegrationTests.Integrations.DonkiClientTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::A2D8D3B1-2B33-43C7-A2F9-16C48BBB0FEE::net8.0::VCR.Demo.IntegrationTests.Integrations.NearEarthObjectClientTests.MultipleInteractions&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

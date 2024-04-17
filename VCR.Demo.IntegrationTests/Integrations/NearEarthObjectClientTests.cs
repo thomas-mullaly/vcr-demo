@@ -28,4 +28,13 @@ public class NearEarthObjectClientTests : VcrTestBase
             neo.Value.Count.Should().BeGreaterThan(0);
         }
     }
+
+    [Fact]
+    public async Task MultipleInteractions()
+    {
+        using var cassette = UseCassette();
+
+        var results = await _client.Feed(new DateOnly(2024, 1, 1), new DateOnly(2024, 1, 7));
+        results = await _client.Feed(new DateOnly(2024, 1, 8), new DateOnly(2024, 1, 10));
+    }
 }
