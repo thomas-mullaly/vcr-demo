@@ -22,7 +22,7 @@ jobs:
         id: variables
         run: echo "PR_DATE=$(date +"%Y-%m-%d")" >> "$GITHUB_ENV"
       - name: Checkout cassettes branch
-        run: git checkout -b ${{ env.PR_DATE }}-cassette-re-record
+        run: git checkout -b ${{ env.PR_DATE }}-${{ github.run_number }}-cassette-re-record
       - name: Restore dependencies
         run: dotnet restore
       - name: Delete cassettes
@@ -31,6 +31,9 @@ jobs:
         run: dotnet build --no-restore
       - name: Test
         run: dotnet test --no-build --verbosity normal
+        env:
+          DONKI_KEY: ${{ secrets.DONKI_KEY }}
+          NEO_KEY: ${{ secrets.NEO_KEY }}
       - name: Commit changes
         run: |
           git config --global user.name 'Cassette Bot'
@@ -40,4 +43,4 @@ jobs:
       - name: Push and create PR
         run: gh pr create --title "${{ env.PR_DATE }} Automated cassette recording" --body "Automated cassette recording"
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.BOT_TOKEN }}

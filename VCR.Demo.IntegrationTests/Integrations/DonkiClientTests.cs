@@ -1,15 +1,20 @@
 ﻿using FluentAssertions;
+using Microsoft.Extensions.Configuration;
 using VCR.Demo.Integrations;
+using VCR.Demo.IntegrationTests.Fixtures;
 
 namespace VCR.Demo.IntegrationTests.Integrations;
 
-public class DonkiClientTests : VcrTestBase
+public class DonkiClientTests : VcrTestBase, IClassFixture<ConfigurationFixture>
 {
     private readonly DonkiClient _client;
 
-    public DonkiClientTests()
+    public DonkiClientTests(ConfigurationFixture fixture)
     {
-        _client = new DonkiClient(CreateClient(), "DEMO_KEY");
+        var apiKey = fixture.Configuration.GetValue<string>("DONKI_KEY")!;
+
+        AddSecretsReplacement(apiKey, "API_KEY");
+        _client = new DonkiClient(CreateClient(), apiKey);
     }
 
     [Fact]
